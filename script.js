@@ -49,14 +49,12 @@ function swapPieces(index) {
     const tempBackground = clickedPiece.style.backgroundImage;
     const tempPosition = clickedPiece.style.backgroundPosition;
 
-    if (emptyPiece) {
-        emptyPiece.style.backgroundImage = tempBackground;
-        emptyPiece.style.backgroundPosition = tempPosition;
-    }
+    emptyPiece.style.backgroundImage = tempBackground;
+    emptyPiece.style.backgroundPosition = tempPosition;
+    emptyPiece.classList.remove("empty");
 
     clickedPiece.style.backgroundImage = "";
     clickedPiece.classList.add("empty");
-    emptyPiece.classList.remove("empty");
 
     emptyIndex = index;
 }
