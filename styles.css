@@ -1,0 +1,63 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #fff0f5; /* Light pink */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ff69b4; /* Hot pink */
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+p {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4081;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
