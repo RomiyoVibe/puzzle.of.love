@@ -1,12 +1,20 @@
 body {
   background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
   font-family: 'Segoe UI', sans-serif;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
   overflow: hidden;
+}
+
+#game-container {
+  text-align: center;
+}
+
+h1 {
+  color: #FF6B81;
 }
 
 #puzzle-container {
@@ -61,3 +69,24 @@ body {
   display: none;
 }
 
+@media (max-width: 500px) {
+  #puzzle-container {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .puzzle-piece {
+    width: 80px;
+    height: 80px;
+    background-size: 240px 240px;
+  }
+
+  #shuffle-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
