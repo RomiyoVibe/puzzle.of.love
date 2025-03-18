@@ -1,85 +1,89 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff0f5;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.container {
-  text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f2;
+    margin: 0;
+    overflow: hidden;
 }
 
 h1 {
-  color: #ff69b4;
+    color: #ff4081;
+    text-align: center;
 }
 
 #puzzle-container {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 5px;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .puzzle-piece {
-  width: 100px;
-  height: 100px;
-  background-size: 300px 300px;
-  border-radius: 16px;
-  box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
-  cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-size: 300px 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.puzzle-piece:active {
+    transform: scale(0.95);
 }
 
 .empty {
-  background: none;
+    background: transparent;
+    border: 1px dashed #ff80ab;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #ff69b4;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+#shuffle-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #ff1493;
+#shuffle-btn:hover {
+    background-color: #e91e63;
 }
 
-.message {
-  color: #ff69b4;
-  font-size: 20px;
-  margin-top: 20px;
+#message {
+    display: none;
+    color: #ff4081;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 /* Confetti Animation */
 .confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
 .confetti {
-  width: 10px;
-  height: 10px;
-  background-color: #ff69b4;
-  position: absolute;
-  animation: fall linear infinite;
-  opacity: 0.8;
+    width: 10px;
+    height: 10px;
+    background-color: #ff80ab;
+    border-radius: 50%;
+    position: absolute;
+    animation: confetti-fall linear infinite;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
