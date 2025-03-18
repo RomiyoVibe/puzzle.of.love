@@ -76,4 +76,75 @@ h1 {
 
 /* Shuffle Button */
 button#shuffle-btn {
-  background-color: #
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button#shuffle-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+
+button#shuffle-btn:hover {
+  background-color: #ff4081;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 64, 129, 0.4);
+}
+
+button#shuffle-btn:active::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
+/* Message */
+#message {
+  font-size: 1.5rem;
+  color: #ff4081;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Particle Effects */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff4081;
+  border-radius: 50%;
+  animation: floatUp 3s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(1);
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.5);
+  }
+}
