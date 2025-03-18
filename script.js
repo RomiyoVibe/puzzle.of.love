@@ -1,4 +1,3 @@
-/* JS (script.js) */
 const imageURL = "https://i.postimg.cc/BnmhjdM8/images-1-1.png";
 
 let puzzle = [];
@@ -47,8 +46,10 @@ function movePiece(event) {
         updatePuzzle();
 
         if (isPuzzleSolved()) {
-            document.getElementById("message").innerText = "Congratulations! You solved the puzzle! 💖";
-            document.getElementById("message").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("message").innerText = "You did it! But solving this puzzle was easier than making me fall for you 😉";
+                document.getElementById("message").style.display = "block";
+            }, 300);
         }
     }
 }
