@@ -49,14 +49,14 @@ function swapPieces(index) {
     const tempBackground = clickedPiece.style.backgroundImage;
     const tempPosition = clickedPiece.style.backgroundPosition;
 
-    clickedPiece.style.backgroundImage = emptyPiece.style.backgroundImage;
-    clickedPiece.style.backgroundPosition = emptyPiece.style.backgroundPosition;
+    if (emptyPiece) {
+        emptyPiece.style.backgroundImage = tempBackground;
+        emptyPiece.style.backgroundPosition = tempPosition;
+    }
 
-    emptyPiece.style.backgroundImage = tempBackground;
-    emptyPiece.style.backgroundPosition = tempPosition;
-
-    puzzle[emptyIndex].classList.add('empty');
-    puzzle[index].classList.remove('empty');
+    clickedPiece.style.backgroundImage = "";
+    clickedPiece.classList.add("empty");
+    emptyPiece.classList.remove("empty");
 
     emptyIndex = index;
 }
