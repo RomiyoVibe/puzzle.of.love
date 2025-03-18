@@ -55,6 +55,9 @@ function swapPieces(index) {
     emptyPiece.style.backgroundImage = tempBackground;
     emptyPiece.style.backgroundPosition = tempPosition;
 
+    puzzle[emptyIndex].classList.add('empty');
+    puzzle[index].classList.remove('empty');
+
     emptyIndex = index;
 }
 
@@ -74,3 +77,18 @@ function getNeighbors(index) {
 document.getElementById("shuffle-btn").addEventListener("click", shufflePuzzle);
 
 createPuzzle();
+
+// Add cute background effect
+document.body.style.background = "linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1)";
+document.body.style.animation = "backgroundMove 6s infinite alternate";
+document.head.insertAdjacentHTML('beforeend', `
+<style>
+  @keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  body {
+    background-size: 300% 300%;
+  }
+</style>
+`);
