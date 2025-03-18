@@ -49,6 +49,7 @@ function movePiece(event) {
             setTimeout(() => {
                 document.getElementById("message").innerText = "You did it! But solving this puzzle was easier than making me fall for you 😉";
                 document.getElementById("message").style.display = "block";
+                triggerConfetti();
             }, 300);
         }
     }
@@ -61,6 +62,22 @@ function updatePuzzle() {
 
 function isPuzzleSolved() {
     return puzzle.every((piece, index) => piece.dataset.index == index || piece.classList.contains("empty"));
+}
+
+function triggerConfetti() {
+    const confettiContainer = document.createElement('div');
+    confettiContainer.classList.add('confetti-container');
+    document.body.appendChild(confettiContainer);
+    
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        confettiContainer.appendChild(confetti);
+    }
+
+    setTimeout(() => confettiContainer.remove(), 5000);
 }
 
 document.getElementById("shuffle-btn").addEventListener("click", shufflePuzzle);
