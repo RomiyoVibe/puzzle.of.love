@@ -1,4 +1,4 @@
-const imageURL = "https://i.postimg.cc/BnmhjdM8/images-1-1.png"; // Custom Cute Puzzle Image
+const imageURL = "https://i.postimg.cc/BnmhjdM8/images-1-1.png";
 
 let puzzle = [];
 const container = document.getElementById("puzzle-container");
