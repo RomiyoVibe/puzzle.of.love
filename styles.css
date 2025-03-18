@@ -2,7 +2,7 @@
 body {
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffe6f2, #ffb6c1);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -21,8 +21,9 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  animation: gradientShift 10s infinite alternate;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -75,17 +76,4 @@ h1 {
 
 /* Shuffle Button */
 button#shuffle-btn {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 25px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-top: 20px;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
-  transition: all 0.3s ease;
-}
-
-button#shuffle-btn:hover {
-  background-color: #ff408
+  background-color: #
