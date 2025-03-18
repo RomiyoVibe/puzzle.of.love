@@ -1,4 +1,4 @@
-const imageURL = "https://i.postimg.cc/3xzSTz12/images-1-1.jpg"; // Replace with your client's image
+const imageURL = "https://i.postimg.cc/3xzSTz12/images-1-1.jpg"; // Your image URL
 
 let puzzle = [];
 const container = document.getElementById("puzzle-container");
@@ -39,4 +39,52 @@ function movePiece(event) {
   let emptyIndex = puzzle.findIndex(piece => piece.classList.contains("empty"));
 
   if ([1, -1, 3, -3].includes(clickedIndex - emptyIndex)) {
-   
+    [puzzle[clickedIndex], puzzle[emptyIndex]] = [puzzle[emptyIndex], puzzle[clickedIndex]];
+    updatePuzzle();
+  }
+
+  if (isPuzzleSolved()) {
+    document.getElementById("message").style.display = "block";
+    triggerParticles();
+  }
+}
+
+// Update the puzzle display
+function updatePuzzle() {
+  container.innerHTML = "";
+  puzzle.forEach(piece => {
+    piece.style.transition = "transform 0.3s ease";
+    container.appendChild(piece);
+  });
+}
+
+// Check if the puzzle is solved
+function isPuzzleSolved() {
+  return puzzle.every((piece, index) => piece.dataset.index == index || piece.classList.contains("empty"));
+}
+
+// Trigger particle effects
+function triggerParticles() {
+  const particleContainer = document.createElement("div");
+  particleContainer.classList.add("particle-container");
+  document.body.appendChild(particleContainer);
+
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+    particleContainer.appendChild(particle);
+  }
+
+  setTimeout(() => {
+    particleContainer.remove();
+  }, 3000);
+}
+
+// Event listeners
+document.getElementById("shuffle-btn").addEventListener("click", shufflePuzzle);
+
+// Initialize the puzzle
+createPuzzle();
+shufflePuzzle();
