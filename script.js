@@ -1,6 +1,4 @@
-const imageURL = "anime_girl.jpg"; // Replace with your client's image
-const moveSound = new Audio("move.mp3"); // Add a move sound effect
-const winSound = new Audio("win.mp3"); // Add a win sound effect
+const imageURL = "https://i.postimg.cc/3xzSTz12/images-1-1.jpg"; // Replace with your client's image
 
 let puzzle = [];
 const container = document.getElementById("puzzle-container");
