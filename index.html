@@ -1,20 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vishu Puzzle</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Vishu's Puzzle of Love</title>
+  <style>
+    body {
+      background-color: #ffc0cb;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      color: #ff69b4;
+    }
+    #container {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-template-rows: repeat(4, 80px);
+      gap: 5px;
+      margin: 20px auto;
+      width: 340px;
+    }
+    .tile {
+      background-color: #ffb6c1;
+      color: white;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    #shuffleBtn {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    #winMsg {
+      font-size: 24px;
+      color: #ff1493;
+      display: none;
+    }
+  </style>
 </head>
-
 <body>
-  <h1>Can You Solve Vishu's Puzzle? 💖</h1>
-  <button id="shuffle-btn">Shuffle Puzzle</button>
-  <div id="puzzle-container"></div>
-  <p id="message"></p>
+  <h1>Vishu's Puzzle of Love</h1>
+  <div id="container"></div>
+  <button id="shuffleBtn">Shuffle</button>
+  <p id="winMsg">"Congrats! You unlocked a piece of my heart 💕"</p>
 
-  <script src="script.js"></script>
+  <script>
+    const container = document.getElementById('container');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+    const winMsg = document.getElementById('winMsg');
+    let tiles = [];
+
+    function createTiles() {
+      for (let i = 1; i <= 15; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.textContent = i;
+        tile.dataset.index = i;
+        tile.addEventListener('click', moveTile);
+        tiles.push(tile);
+      }
+      tiles.push(null);
+      renderTiles();
+    }
+
+    function renderTiles() {
+      container.innerHTML = '';
+      tiles.forEach(tile => {
+        if (tile) container.appendChild(tile);
+        else {
+          const emptyTile = document.createElement('div');
+          emptyTile.className = 'tile';
+          emptyTile.style.visibility = 'hidden';
+          container.appendChild(emptyTile);
+        }
+      });
+    }
+
+    function moveTile(e) {
+      const index = tiles.indexOf(e.target);
+      const emptyIndex = tiles.indexOf(null);
+      const diff = Math.abs(index - emptyIndex);
+
+      if (diff === 1 || diff === 4) {
+        [tiles[index], tiles[emptyIndex]] = [tiles[emptyIndex], tiles[index]];
+        renderTiles();
+        checkWin();
+      }
+    }
+
+    function shuffleTiles() {
+      for (let i = tiles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
+      }
+      renderTiles();
+      winMsg.style.display = 'none';
+    }
+
+    function checkWin() {
+      for (let i = 0; i < 15; i++) {
+        if (tiles[i] && parseInt(tiles[i].textContent) !== i + 1) return;
+      }
+      winMsg.style.display = 'block';
+    }
+
+    shuffleBtn.addEventListener('click', shuffleTiles);
+    createTiles();
+  </script>
 </body>
-
 </html>
