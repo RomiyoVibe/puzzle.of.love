@@ -1,61 +1,63 @@
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #fff0f5;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    color: #ff69b4;
-    font-size: 2.5rem;
-    margin-top: 20px;
-}
-
-p {
-    color: #333;
-    font-size: 1.2rem;
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
 #puzzle-container {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    justify-content: center;
-    margin: 20px auto;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .puzzle-piece {
-    width: 100px;
-    height: 100px;
-    background-size: 300px 300px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  background-size: 300px 300px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-button {
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 20px;
-    font-size: 1rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.puzzle-piece:active {
+  transform: scale(0.95);
 }
 
-button:hover {
-    background-color: #ff4081;
+.empty {
+  background: none;
 }
 
-footer p {
-    font-size: 0.9rem;
-    color: #999;
+#shuffle-btn {
+  margin-top: 20px;
+  background-color: #FF6B81;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
 }
+
+#shuffle-btn:hover {
+  background-color: #FF4757;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #2ED573;
+  display: none;
+}
+
