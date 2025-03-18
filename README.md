@@ -1,2 +1,12 @@
-# puzzle.of.love
-Puzzle of Love 💖 A cute, interactive puzzle game to surprise your loved one! Solve the puzzle to reveal a heartfelt message. Customize with your own image and text. Simple, fun, and mobile-friendly, it's perfect for creating a romantic moment. Make memories that last forever! 🧩💕
+"Puzzle of Love" 💖
+A cute and interactive puzzle game designed to surprise your loved one. Solve the puzzle to reveal a heartfelt surprise! Perfect for expressing your feelings in a playful and romantic way. Customize it with your own image and message.
+
+🧩 Features:
+
+Cute, love-themed design.
+Simple and fun puzzle mechanics.
+Mobile-friendly and responsive.
+Personalize with your own images and text.
+Make a special moment unforgettable! 🌸
+
+Let me know if you'd like further tweaks! 😊
