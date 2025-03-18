@@ -78,8 +78,9 @@ document.getElementById("shuffle-btn").addEventListener("click", shufflePuzzle);
 
 createPuzzle();
 
-// Add cute background effect
-document.body.style.background = "linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1)";
+// Add cute animated background effect
+document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb)";
+document.body.style.backgroundSize = "300% 300%";
 document.body.style.animation = "backgroundMove 6s infinite alternate";
 document.head.insertAdjacentHTML('beforeend', `
 <style>
