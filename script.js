@@ -44,12 +44,20 @@ function movePiece(event) {
     if ((rowDiff === 1 && colDiff === 0) || (rowDiff === 0 && colDiff === 1)) {
         [puzzle[clickedIndex], puzzle[emptyIndex]] = [puzzle[emptyIndex], puzzle[clickedIndex]];
         updatePuzzle();
+
+        if (isPuzzleSolved()) {
+            document.getElementById("message").style.display = "block";
+        }
     }
 }
 
 function updatePuzzle() {
     container.innerHTML = "";
-    puzzle.forEach(piece => container.appendChild(piece));
+    puzzlae.forEach(piece => container.appendChild(piece));
+}
+
+function isPuzzleSolved() {
+    return puzzle.every((piece, index) => piece.dataset.index == index || piece.classList.contains("empty"));
 }
 
 document.getElementById("shuffle-btn").addEventListener("click", shufflePuzzle);
