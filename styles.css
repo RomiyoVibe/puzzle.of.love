@@ -1,55 +1,85 @@
-/* CSS (styles.css) */
 body {
-  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff0f5;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  font-family: Arial, sans-serif;
 }
+
 .container {
   text-align: center;
 }
+
 h1 {
-  color: #fff;
-  margin-bottom: 20px;
+  color: #ff69b4;
 }
+
 #puzzle-container {
-  width: 304px;
-  height: 304px;
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 2px;
-  background-color: #fff;
-  border: 8px solid #ff69b4;
-  border-radius: 16px;
+  gap: 5px;
+  margin-top: 20px;
 }
+
 .puzzle-piece {
   width: 100px;
   height: 100px;
   background-size: 300px 300px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
   cursor: pointer;
 }
+
 .empty {
-  background: transparent;
+  background: none;
 }
-#shuffle-btn {
+
+button {
   margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #ff69b4;
+  padding: 10px 20px;
+  font-size: 16px;
   color: white;
+  background-color: #ff69b4;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
-#shuffle-btn:hover {
-  background-color: #ff85c1;
+
+button:hover {
+  background-color: #ff1493;
 }
-#message {
-  color: #fff;
+
+.message {
+  color: #ff69b4;
+  font-size: 20px;
   margin-top: 20px;
-  font-size: 24px;
+}
+
+/* Confetti Animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.confetti {
+  width: 10px;
+  height: 10px;
+  background-color: #ff69b4;
+  position: absolute;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }
