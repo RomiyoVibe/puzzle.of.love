@@ -1,3 +1,4 @@
+/* JS (script.js) */
 const imageURL = "https://i.postimg.cc/BnmhjdM8/images-1-1.png";
 
 let puzzle = [];
@@ -46,6 +47,7 @@ function movePiece(event) {
         updatePuzzle();
 
         if (isPuzzleSolved()) {
+            document.getElementById("message").innerText = "Congratulations! You solved the puzzle! 💖";
             document.getElementById("message").style.display = "block";
         }
     }
@@ -53,7 +55,7 @@ function movePiece(event) {
 
 function updatePuzzle() {
     container.innerHTML = "";
-    puzzlae.forEach(piece => container.appendChild(piece));
+    puzzle.forEach(piece => container.appendChild(piece));
 }
 
 function isPuzzleSolved() {
